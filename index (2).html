@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roadmap de Desarrollo - Carbono Secundario</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #2563eb;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .container {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .mermaid {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .note {
+            background: #e3f2fd;
+            padding: 15px;
+            border-left: 4px solid #2196f3;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Roadmap de Desarrollo</h1>
+    
+    <div class="container">
+        <h2>Próximas Funcionalidades</h2>
+        <div class="mermaid">
+gantt
+    title Cronograma de Implementación
+    dateFormat  YYYY-MM-DD
+    axisFormat %b '%y
+    
+    section Mejoras Actuales
+    Diseño responsive       :done, des1, 2023-10-01, 15d
+    Accesibilidad WCAG      :done, des2, after des1, 10d
+    Modelo 3D interactivo   :active, des3, after des2, 25d
+    
+    section Próxima Versión
+    Ejercicios interactivos : crit, des4, 2024-11-15, 30d
+    Banco de preguntas      : des5, after des4, 20d
+    
+    section Futuro
+    Simulador de reacciones : des6, 2025-01-10, 45d
+    Exportación modelos 3D  : des7, after des6, 25d
+        </div>
+        
+        <div class="note">
+            <strong>Nota:</strong> Este roadmap está sujeto a cambios según feedback de usuarios y disponibilidad de recursos.
+            <br>Última actualización: 2024-10-20
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            gantt: {
+                barHeight: 25,
+                fontSize: 14,
+                useWidth: 900,
+                numberSectionStyles: 3
+            }
+        });
+        
+        // Opcional: Actualizar dinámicamente
+        function updateRoadmap() {
+            const today = new Date().toISOString().split('T')[0];
+            document.querySelector('.note').innerHTML += `<br>Fecha actual: ${today}`;
+        }
+        window.onload = updateRoadmap;
+    </script>
+</body>
+</html>
